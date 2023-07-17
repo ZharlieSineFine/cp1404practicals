@@ -3,6 +3,8 @@
 MENU = "(G)et a valid score\n(P)rint result\n(S)how stars\n(Q)uit"
 MINIMUM_SCORE = 0
 MAXIMUM_SCORE = 100
+EXCELLENT_THRESHOLD = 90
+PASSABLE_THRESHOLD = 50
 
 
 def main():
@@ -36,11 +38,11 @@ def get_valid_score():
 
 def determine_result(score):
     """Determine result based on score."""
-    if score < 0 or score > 100:
+    if score < MINIMUM_SCORE or score > MAXIMUM_SCORE:
         result = "Invalid score"
-    elif score >= 90:
+    elif score >= EXCELLENT_THRESHOLD:
         result = "Excellent"
-    elif score >= 50:
+    elif score >= PASSABLE_THRESHOLD:
         result = "Passable"
     else:
         result = "Bad"
