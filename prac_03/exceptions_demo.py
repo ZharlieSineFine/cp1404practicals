@@ -12,6 +12,7 @@ See changes made below.
 try:
     numerator = int(input("Enter the numerator: "))
     denominator = int(input("Enter the denominator: "))
+# Changes to validate the denominator
     while denominator == 0:
         print("Cannot divide by zero!")
         denominator = int(input("Enter the denominator: "))
