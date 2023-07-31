@@ -18,5 +18,15 @@ def main():
     print(f"The largest number is {max(numbers)}")
     print(f"The average of the numbers is {total / NUMBER_OF_PROMPTS:.1f}")
 
+    # Woefully inadequate security checker
+    usernames = ['jimbo', 'giltson98', 'derekf', 'WhatSup', 'NicolEye', 'swei45', 'BaseInterpreterInterface',
+                 'BaseStdIn', 'Command', 'ExecState', 'InteractiveConsole', 'InterpreterInterface', 'StartServer',
+                 'bob']
+    user_name = input("Username: ")
+    if user_name in usernames:
+        print("Access granted")
+    else:
+        print("Access denied")
+
 
 main()
