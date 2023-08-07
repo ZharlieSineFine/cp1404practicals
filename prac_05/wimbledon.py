@@ -13,7 +13,6 @@ def main():
     with open(filename, "r", encoding="utf-8-sig") as in_file:
         wimbledon_infos = read_file_into_list(in_file)
         champion_to_victory = collect_champion_wins(wimbledon_infos)
-        collect_winning_countries(wimbledon_infos)
         winning_countries = collect_winning_countries(wimbledon_infos)
     winning_countries = sorted(winning_countries)
 
