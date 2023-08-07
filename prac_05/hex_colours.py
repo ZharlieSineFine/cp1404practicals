@@ -10,5 +10,3 @@ while color_name != "":
         print("Invalid color code")
 
     color_name = input("Enter color name: ").title()
-
-
