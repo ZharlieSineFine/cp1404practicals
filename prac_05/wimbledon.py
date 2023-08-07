@@ -3,25 +3,40 @@ Emails
 Estimate: 25 minutes
 Actual:   40 minutes
 """
+WINNING_COUNTRY_INDEX = 1
+CHAMPION_NAME_INDEX = 2
 
 
 def main():
     """Apply various functions to display requested results."""
-    champion_to_victory = {}
-    countries = set()
     filename = "wimbledon.csv"
     with open(filename, "r", encoding="utf-8-sig") as in_file:
         wimbledon_infos = read_file_into_list(in_file)
-        for info in wimbledon_infos:
-            champion_to_victory[info[2]] = champion_to_victory.get(info[2], 0) + 1
-
-        # countries.add(detail[1])
-    countries = sorted(countries)
+        champion_to_victory = collect_champion_wins(wimbledon_infos)
+        collect_winning_countries(wimbledon_infos)
+        winning_countries = collect_winning_countries(wimbledon_infos)
+    winning_countries = sorted(winning_countries)
 
     # print(wimbledon_info)
     print(champion_to_victory)
-    print(f"These {len(countries)} countries have won Wimbledon:")
-    print(", ".join(countries))
+    print(f"These {len(winning_countries)} countries have won Wimbledon:")
+    print(", ".join(winning_countries))
+
+
+def collect_winning_countries(wimbledon_infos):
+    """Store winning countries into a set."""
+    winning_countries = set()
+    for info in wimbledon_infos:
+        winning_countries.add(info[WINNING_COUNTRY_INDEX])
+    return winning_countries
+
+
+def collect_champion_wins(wimbledon_infos):
+    """Create champion_to_wins dictionary."""
+    champion_to_victory = {}
+    for info in wimbledon_infos:
+        champion_to_victory[info[CHAMPION_NAME_INDEX]] = champion_to_victory.get(info[CHAMPION_NAME_INDEX], 0) + 1
+    return champion_to_victory
 
 
 def read_file_into_list(in_file):
