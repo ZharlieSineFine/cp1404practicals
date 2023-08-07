@@ -1,7 +1,7 @@
 """
 Emails
 Estimate: 15 minutes
-Actual:    minutes
+Actual:   25 minutes
 """
 user_email = input("Email: ")
 email_to_name = {}
