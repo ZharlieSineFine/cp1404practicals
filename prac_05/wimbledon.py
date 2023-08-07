@@ -17,8 +17,13 @@ def main():
         winning_countries = collect_winning_countries(wimbledon_infos)
     winning_countries = sorted(winning_countries)
 
-    # print(wimbledon_info)
-    print(champion_to_victory)
+    maximum_name_length = max(len(champion) for champion in list(champion_to_victory.keys()))
+    print("Wimbledon Champions:")
+
+    for champion, wins in (champion_to_victory.items()):
+        print(f"{champion:<{maximum_name_length}} {wins}")
+
+    print()
     print(f"These {len(winning_countries)} countries have won Wimbledon:")
     print(", ".join(winning_countries))
 
