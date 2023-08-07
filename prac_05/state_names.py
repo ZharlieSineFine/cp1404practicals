@@ -22,6 +22,8 @@ while state_code != "":
     state_code = input("Enter short state: ").upper()
 
 # Write a loop that prints all the states and names neatly lined up with string formatting
-maximum_length = max(len(name) for name in list(CODE_TO_NAME.keys()))
+# Add maximum length for state code
+code_maximum_length = max(len(code) for code in list(CODE_TO_NAME.keys()))
+name_maximum_length = max(len(name) for name in list(CODE_TO_NAME.values()))
 for code, name in CODE_TO_NAME.items():
-    print(f"{code:<3} is {name:<{maximum_length}}")
+    print(f"{code:<{code_maximum_length}} is {name:<{name_maximum_length}}")
