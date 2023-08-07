@@ -5,8 +5,6 @@ Actual:   25 minutes
 """
 
 
-
-
 def main():
     user_email = input("Email: ")
     email_to_name = {}
@@ -30,3 +28,4 @@ def extract_name_by_email(email):
     return user_name
 
 
+main()
