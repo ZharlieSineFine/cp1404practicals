@@ -7,6 +7,7 @@ Actual:   16 minutes
 user_text = input("Text: ")
 word_to_count = {}
 for word in user_text.split():
+    word = word.lower()
     word_to_count[word] = word_to_count.get(word, 0) + 1
 
 maximum_length = max(len(word) for word in list(word_to_count.keys()))
