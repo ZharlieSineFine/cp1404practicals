@@ -5,12 +5,13 @@ Actual:   40 minutes
 """
 WINNING_COUNTRY_INDEX = 1
 CHAMPION_NAME_INDEX = 2
+FILENAME = "wimbledon.csv"
 
 
 def main():
     """Apply various functions to display requested results."""
-    filename = "wimbledon.csv"
-    with open(filename, "r", encoding="utf-8-sig") as in_file:
+
+    with open(FILENAME, "r", encoding="utf-8-sig") as in_file:
         wimbledon_infos = read_file_into_list(in_file)
         champion_to_victory = collect_champion_wins(wimbledon_infos)
         winning_countries = collect_winning_countries(wimbledon_infos)
