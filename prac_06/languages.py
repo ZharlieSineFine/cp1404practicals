@@ -1,4 +1,8 @@
-"""CP1404/CP5632 Practical - Client code to use the ProgrammingLanguage class."""
+"""CP1404/CP5632 Practical - Client code to use the ProgrammingLanguage class.
+Estimate: 10 minutes
+Time started: 11:00
+Time finished: 11:11
+"""
 
 from cp1404practicals.prac_06.programming_language import ProgrammingLanguage
 
