@@ -1,7 +1,7 @@
 """CP1404/CP5632 Practical - Client code to test the Guitar class.
 Estimate: 15 minutes
 Time started: 11:41
-Time finished:
+Time finished: 11:50
 """
 
 from cp1404practicals.prac_06.guitar import Guitar
