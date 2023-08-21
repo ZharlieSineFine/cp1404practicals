@@ -1,7 +1,7 @@
 """CP1404/CP5632 Practical - ProgrammingLanguage class.
 Estimated: 10 minutes
 Time started: 10:39
-Time finished: """
+Time finished: 10:55"""
 
 
 class ProgrammingLanguage:
@@ -13,6 +13,10 @@ class ProgrammingLanguage:
         self.typing = typing.title()
         self.reflection = reflection
         self.year = year
+
+    def __str__(self):
+        """Return the ProgrammingLanguage class info."""
+        return f"{self.name}, {self.typing} Typing, Reflection={self.reflection}, First appeared in {self.year}"
 
     def is_dynamic(self):
         """Check if the language typing is dynamic."""
