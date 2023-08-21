@@ -30,5 +30,5 @@ class Guitar:
             return False
 
     def __lt__(self, other):
-        """"""
+        """Compare if this object is less than the other."""
         return self.year < other.year
