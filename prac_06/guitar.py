@@ -1,4 +1,8 @@
-"""CP1404/CP5632 Practical - Guitar class."""
+"""CP1404/CP5632 Practical - Guitar class.
+Estimate: 20 minutes
+Time started: 11:25
+Time finished:
+"""
 
 
 class Guitar:
@@ -11,4 +15,11 @@ class Guitar:
         self.cost = cost
 
     def __str__(self):
+        """Return the guitar info."""
         return "{} ({}) : ${:,.2f}".format(self.name, self.year, self.cost)
+
+    def get_age(self):
+        """Calculate how old the guitar is in years."""
+        return 2023 - self.year
+
+
