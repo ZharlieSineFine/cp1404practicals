@@ -48,7 +48,7 @@ def main():
             for project in projects:
                 project_to_write = [project.name, project.start_date, project.priority, project.cost_estimate,
                                     project.completion_percentage]
-                print("\t".join(element for element in project_to_write), file=out_file)
+                print("\t".join(str(element) for element in project_to_write), file=out_file)
             out_file.close()
 
         elif user_option == 'D':
@@ -115,9 +115,9 @@ def main():
             except ValueError:
                 pass
 
-
         print(MENU)
         user_option = input(">>> ").upper()
+    print("Thank you for using custom-built project management software.")
 
 
 if __name__ == '__main__':
