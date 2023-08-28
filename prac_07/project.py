@@ -23,8 +23,8 @@ class Project:
 
     def __repr__(self):
         """Return representation of a project class."""
-        return (f"{self.name} starts at {self.start_date}, its priority is {self.priority}.It costs roughly "
-                f"around {self.cost_estimate}. {self.completion_percentage} of the project has been completed.")
+        return (f"{self.name}, start: {self.start_date}, priority {self.priority}, estimate: ${self.cost_estimate}, "
+                f"completion: {self.completion_percentage}%")
 
     def __lt__(self, other):
         """Compare if the current project's priority is less than others."""
@@ -46,5 +46,3 @@ class Project:
         """Update the completion percentage and priority of the project."""
         self.completion_percentage = new_percentage
         self.priority = new_priority
-
-
