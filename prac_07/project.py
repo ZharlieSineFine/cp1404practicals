@@ -42,7 +42,12 @@ class Project:
         """Compare if the current project's priority is greater than others."""
         return self.priority > other.priority
 
-    def update_project(self, new_percentage, new_priority):
-        """Update the completion percentage and priority of the project."""
+    def update_project_percentage(self, new_percentage):
+        """Update the completion percentage of the project."""
         self.completion_percentage = new_percentage
+
+    def update_project_priority(self, new_priority):
+        """Update the priority of the project."""
         self.priority = new_priority
+
+
