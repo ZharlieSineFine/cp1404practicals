@@ -18,6 +18,10 @@ class Guitar:
         """Return the guitar info."""
         return "{} ({}) : ${:,.2f}".format(self.name, self.year, self.cost)
 
+    def __repr__(self):
+        """Return representation of a Guitar class."""
+        return "{} ({}) : ${:,.2f}".format(self.name, self.year, self.cost)
+
     def get_age(self):
         """Calculate how old the guitar is in years."""
         return 2023 - self.year
