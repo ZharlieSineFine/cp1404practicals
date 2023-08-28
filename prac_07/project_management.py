@@ -26,6 +26,9 @@ def main():
 
     print(MENU)
     user_option = input(">>> ").upper()
+    while user_option not in VALID_OPTIONS:
+        print("Invalid option.")
+        user_option = input(">>> ").upper()
     while user_option != 'Q':
         if user_option == 'L':
             in_file = open(FILENAME, 'r')
