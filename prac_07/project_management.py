@@ -40,6 +40,7 @@ def main():
             print(f"{len(projects)} projects has been read and stored into the projects list.")
             print(projects)
             in_file.close()
+            projects.sort()
 
         elif user_option == 'S':
             out_file = open(FILENAME, 'w')
@@ -55,8 +56,65 @@ def main():
                                    != COMPLETE_PERCENTAGE]
             print("Incomplete projects: ")
             for incomplete_project in incomplete_projects:
-                print()
-            print(incomplete_projects)
+                print(incomplete_project)
+            complete_projects = [project for project in projects if project.completion_percentage ==
+                                 COMPLETE_PERCENTAGE]
+            print("Completed projects: ")
+            for complete_project in complete_projects:
+                print(complete_project)
+
+        elif user_option == 'F':
+            after_date_string = input("Show projects that start after date (dd/mm/yy): ")
+            after_date = datetime.datetime.strptime(after_date_string, "%d/%m/%Y").date()
+            print(f"That day is/was {after_date.strftime('%A')}")
+            print(after_date.strftime("%d/%m/%Y"))
+            after_date_projects = [project for project in projects
+                                   if datetime.datetime.strptime(project.start_date, "%d/%m/%Y").date()
+                                   >= after_date]
+            sort_by_after_date_projects = []
+            qualified_dates = [datetime.datetime.strptime(project.start_date, "%d/%m/%Y").date()
+                               for project in after_date_projects]
+
+            qualified_dates.sort()
+
+            for date in qualified_dates:
+                for project in after_date_projects:
+                    if date == datetime.datetime.strptime(project.start_date, "%d/%m/%Y").date():
+                        sort_by_after_date_projects.append(project)
+
+            for after_date_project in sort_by_after_date_projects:
+                print(after_date_project)
+
+        elif user_option == 'A':
+            print("Let's add a new project")
+            new_project_name = input("Name: ")
+            new_project_start = input("Start date (dd/mm/yy): ")
+            new_project_priority = int(input("Priority: "))
+            new_project_cost = float(input("Cost estimate: $"))
+            new_project_percent = int(input("Percent complete: "))
+            new_project = Project(new_project_name, new_project_start, new_project_priority,
+                                  new_project_cost, new_project_percent)
+            projects.append(new_project)
+            projects.sort()
+
+        else:  # user_option == 'U'
+            number_to_project = {i: project for i, project in enumerate(projects, 0)}
+
+            for i in number_to_project.keys():
+                print(f"{i} {number_to_project[i]}")
+            project_choice = int(input("Project choice: "))
+            # TODO: error checking
+            updated_project = number_to_project[project_choice]
+            print(updated_project)
+            print(type(updated_project))
+            try:
+                update_percentage = int(input("New Percentage: "))
+                updated_project.update_project_percentage(update_percentage)
+                update_priority = int(input("New Priority: "))
+                updated_project.update_project_priority(update_priority)
+            except ValueError:
+                pass
+
 
         print(MENU)
         user_option = input(">>> ").upper()
