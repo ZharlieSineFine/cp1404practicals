@@ -1,5 +1,5 @@
 """CP1404/CP5632 Practical - Client code to use the Guitar class.
-Estimate: 20 minutes
+Estimate: 40 minutes
 Time started: 11:40
 Time finished: 12:54
 """
