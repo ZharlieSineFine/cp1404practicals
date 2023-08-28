@@ -18,8 +18,8 @@ class Project:
 
     def __str__(self):
         """Return string of a project."""
-        return (f"{self.name} starts at {self.start_date}, its priority is {self.priority}.It costs roughly "
-                f"around {self.cost_estimate}. {self.completion_percentage} of the project has been completed.")
+        return (f"{self.name}, start: {self.start_date}, priority {self.priority}, estimate: ${self.cost_estimate}, "
+                f"completion: {self.completion_percentage}%")
 
     def __repr__(self):
         """Return representation of a project class."""
