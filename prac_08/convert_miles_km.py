@@ -8,6 +8,7 @@ Started 04/09/2023
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.core.window import Window
+
 # from kivy.properties import StringProperty
 
 MILE_TO_KILOMETER_RATIO = 1.609344
@@ -15,6 +16,7 @@ MILE_TO_KILOMETER_RATIO = 1.609344
 
 class ConvertMilesToKmApp(App):
     """ConvertMilesToKmApp is a Kivy App for converting miles to kilometers."""
+
     # output = StringProperty()
 
     def build(self):
@@ -24,21 +26,25 @@ class ConvertMilesToKmApp(App):
         self.root = Builder.load_file('convert_miles_km.kv')
         return self.root
 
-    def handle_convert(self, mile):
+    def handle_convert(self):
         """Convert miles to km."""
-        try:
-            kilometer = float(mile) * MILE_TO_KILOMETER_RATIO
-            self.root.ids.output_label.text = str(kilometer)
-        except ValueError:
-            self.root.ids.output_label.text = '0.0'
+        mile = self.validate_input()
+        kilometer = mile * MILE_TO_KILOMETER_RATIO
+        self.root.ids.output_label.text = str(kilometer)
 
-    def handle_increment(self, mile, increment):
+    def handle_increment(self, increment):
         """Increment the value."""
+        mile = self.validate_input() + increment
+        self.root.ids.input_mile.text = str(mile)
+        self.handle_convert()
+
+    def validate_input(self):
+        """Validate the input mile."""
         try:
-            mile = float(mile) + increment
-            self.root.ids.input_mile.text = str(mile)
+            mile = float(self.root.ids.input_mile.text)
+            return mile
         except ValueError:
-            self.root.ids.input_mile.text = str(increment)
+            return 0
 
 
 ConvertMilesToKmApp().run()
