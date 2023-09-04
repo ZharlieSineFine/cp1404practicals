@@ -47,6 +47,7 @@ def main():
             save_file(project_info_categories, projects, save_filename)
 
         elif user_option == 'D':
+            projects.sort()
             display_incomplete_projects(projects)
             display_complete_projects(projects)
 
