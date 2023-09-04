@@ -29,9 +29,6 @@ def main():
 
     print(MENU)
     user_option = input(">>> ").upper()
-    while user_option not in VALID_OPTIONS:
-        print("Invalid option.")
-        user_option = input(">>> ").upper()
     while user_option != 'Q':
         if user_option == 'L':
             load_filename = input("Filename: ")
@@ -75,7 +72,7 @@ def main():
             except ValueError:
                 print("Invalid input.")
 
-        else:  # user_option == 'U'
+        elif user_option == 'U':
             number_to_project = {i: project for i, project in enumerate(projects, 0)}
             for i in number_to_project.keys():
                 print(f"{i} {number_to_project[i]}")
@@ -90,10 +87,11 @@ def main():
                 updated_project.update_project_priority(update_priority)
             except ValueError:
                 pass  # Based on the sample output, if an invalid input occurs, the program will jump to the menu
-
+        else:
+            print("Invalid option.")
         print(MENU)
         user_option = input(">>> ").upper()
-        save_file(project_info_categories, projects, FILENAME)
+    save_file(project_info_categories, projects, FILENAME)
     print("Thank you for using custom-built project management software.")
 
 
