@@ -13,7 +13,7 @@ from kivy.properties import StringProperty
 
 class DynamicLabelsApp(App):
     """Kivy App tp create dynamic labels."""
-    status_text = StringProperty()
+    # status_text = StringProperty()
 
     def __init__(self, **kwargs):
         """Construct the app."""
