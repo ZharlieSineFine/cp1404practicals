@@ -1,6 +1,6 @@
 """
 CP1404/CP5632 Practical
-Taxi class
+Client code to test Taxi class
 """
 # from car import Car
 from taxi import Taxi
