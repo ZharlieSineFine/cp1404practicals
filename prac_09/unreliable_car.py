@@ -16,7 +16,7 @@ class UnreliableCar(Car):
 
     def __str__(self):
         """Return the UnreliableCar info."""
-        return f"{super().__str__}, the car's reliability is {self.reliability}."
+        return f"{super().__str__()}, the car's reliability is {self.reliability}."
 
     def drive(self, distance):
         """Only drive the car if the random number is less than the car's reliability."""
