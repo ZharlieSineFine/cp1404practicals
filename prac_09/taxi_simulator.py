@@ -27,7 +27,6 @@ def main():
                 print("Invalid taxi choice.")
             else:
                 current_taxi = number_to_taxi[number_choice]
-
         elif user_option == 'd':
             if current_taxi:
                 drive_distance = int(input("Drive how far? "))
@@ -37,7 +36,6 @@ def main():
                 bill_to_date += current_taxi.get_fare()
             else:
                 print("You need to choose a taxi before you can drive")
-
         else:
             print("Invalid option.")
         print(f"Bill to date: ${bill_to_date:.2f}")
