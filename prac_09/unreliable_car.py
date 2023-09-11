@@ -21,8 +21,8 @@ class UnreliableCar(Car):
     def drive(self, distance):
         """Only drive the car if the random number is less than the car's reliability."""
         breakdown_chance = randint(0, 100)
-        if breakdown_chance < self.reliability:
-            super().drive(distance)
-        else:
+        if breakdown_chance >= self.reliability:
             distance = 0
+
+        distance = super().drive(distance)
         return distance
