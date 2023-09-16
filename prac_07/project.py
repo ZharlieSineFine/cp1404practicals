@@ -49,5 +49,3 @@ class Project:
     def update_project_priority(self, new_priority):
         """Update the priority of the project."""
         self.priority = new_priority
-
-
