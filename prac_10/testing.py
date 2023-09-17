@@ -25,6 +25,21 @@ def is_long_word(word, length=5):
     return len(word) >= length
 
 
+def reformat_phrase_to_sentence(phrase: str):
+    """Reformat a phrase to a sentence.
+    >>> reformat_phrase_to_sentence('hello')
+    'Hello.'
+    >>> reformat_phrase_to_sentence('It is an ex parrot.')
+    'It is an ex parrot.'
+    >>> reformat_phrase_to_sentence('UBI Caritas et amor')
+    'Ubi caritas et amor.'
+    """
+    sentence = phrase.capitalize()
+    if sentence[-1] != '.':
+        sentence += '.'
+    return sentence
+
+
 def run_tests():
     """Run the tests on the functions."""
     # assert test with no message - used to see if the function works properly
@@ -57,6 +72,7 @@ run_tests()
 # (PyCharm may see your >>> doctest comments and run doctests anyway.)
 doctest.testmod()
 
+
 # TODO: 4. Fix the failing is_long_word function
 # (don't change the tests, change the function!)
 
@@ -69,3 +85,6 @@ doctest.testmod()
 # and one more you decide (one that is valid!)
 # test this and watch the tests fail
 # then write the body of the function so that the tests pass
+
+
+
